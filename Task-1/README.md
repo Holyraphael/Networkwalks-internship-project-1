@@ -50,7 +50,7 @@ Configuration
 
 Evidence
 
-"NAT Network Configuration" (screenshots/02_NATNetwork.jpeg)
+"NAT Network Configuration" (./02_NATNetwork.jpeg)
 
 ---
 
@@ -70,7 +70,7 @@ Adapter Configuration
 
 Evidence
 
-"Network Adapter Configuration" (screenshots/03_Selecting_NATNetwork.jpeg)
+"Network Adapter Configuration" (./03_Selecting_NATNetwork.jpeg)
 
 ---
 
@@ -90,7 +90,7 @@ DNS Servers| "8.8.8.8", "10.0.0.1"
 
 Evidence
 
-"Kali Linux Static IP Configuration" (screenshots/04_Setting_Address.jpeg)
+"Kali Linux Static IP Configuration" (./04_Setting_Address.jpeg)
 
 ---
 
@@ -116,7 +116,7 @@ I then went back to confirm the address i setup.
 
 Evidence
 
-"DHCP CONFIRMINATION" (screenshots/05_Confirming_Address.jpeg)
+"DHCP CONFIRMINATION" (./05_Confirming_Address.jpeg)
 
 ---
 
@@ -142,7 +142,7 @@ The initial tests were unsuccessful because the DHCP Server had not been enabled
 
 Evidence
 
-"Connectivity Test" (screenshots/06_Network_Connectivity.jpeg)
+"Connectivity Test" (./06_Network_Connectivity.jpeg)
 
 ---
 
