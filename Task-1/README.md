@@ -50,7 +50,7 @@ Configuration
 
 Evidence
 
-"NAT Network Configuration" (screenshots/01-nat-network.png)
+"NAT Network Configuration" (screenshots/02_NATNetwork.jpeg)
 
 ---
 
@@ -70,7 +70,7 @@ Adapter Configuration
 
 Evidence
 
-"Network Adapter Configuration" (screenshots/02-network-adapter.png)
+"Network Adapter Configuration" (screenshots/03_Selecting_NATNetwork.jpeg)
 
 ---
 
@@ -90,7 +90,7 @@ DNS Servers| "8.8.8.8", "10.0.0.1"
 
 Evidence
 
-"Kali Linux Static IP Configuration" (screenshots/03-static-ip.png)
+"Kali Linux Static IP Configuration" (screenshots/04_Setting_Address.jpeg)
 
 ---
 
@@ -112,9 +112,11 @@ After reviewing the NAT Network settings in VirtualBox, I discovered that the DH
 
 I returned to the "NatNetwork" configuration and enabled the DHCP Server option. After applying the change, I returned to Kali Linux and reapplied the network configuration.
 
+I then went back to confirm the address i setup.
+
 Evidence
 
-"DHCP Enabled" (screenshots/04-dhcp-enabled.png)
+"DHCP CONFIRMINATION" (screenshots/05_Confirming_Address.jpeg)
 
 ---
 
@@ -140,7 +142,7 @@ The initial tests were unsuccessful because the DHCP Server had not been enabled
 
 Evidence
 
-"Connectivity Test" (screenshots/05-connectivity-test.png)
+"Connectivity Test" (screenshots/06_Network_Connectivity.jpeg)
 
 ---
 
