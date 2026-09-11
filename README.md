@@ -23,7 +23,7 @@ The main objectives of this internship are to:
 
 ## Tools & Technologies
 
-The internship activities may involve the following technologies and tools:
+The internship activities involve the following technologies and tools:
 
 - **Kali Linux**
 - **Oracle VirtualBox**
