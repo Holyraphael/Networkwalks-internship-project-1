@@ -1,204 +1,172 @@
-🛡️ Week 2 — Footprinting & Reconnaissance with Kali Linux
+Week 2 – Project Module 3: Footprinting with Maltego
 
-"Cybersecurity" (https://img.shields.io/badge/Focus-Footprinting%20%26%20Reconnaissance-blue)
-"Kali Linux" (https://img.shields.io/badge/Platform-Kali%20Linux-557C94?logo=kalilinux)
+"Maltego" (https://img.shields.io/badge/Tool-Maltego-orange)
+"OS" (https://img.shields.io/badge/OS-Windows%2011-lightgrey)
+"Java" (https://img.shields.io/badge/Java-Eclipse%20Temurin-blue)
+"Focus" (https://img.shields.io/badge/Focus-OSINT%20%7C%20Footprinting-blueviolet)
 "Status" (https://img.shields.io/badge/Status-Completed-success)
 
-"Footprinting and Reconnaissance" (./screenshots/footprinting-reconnaissance.png)
+📖 Overview
 
-📌 Overview
+This project focused on footprinting and Open-Source Intelligence (OSINT) using Maltego, a graphical link-analysis and reconnaissance tool.
 
-This project is part of my Week 2 cybersecurity training, focused on footprinting and reconnaissance.
+The practical involved configuring Maltego, creating a domain-based graph, and using a search-engine-based transform to identify publicly discoverable email information associated with "networkwalks.com".
 
-I used multiple Kali Linux tools to gather and correlate publicly observable information about "networkwalks.com", including domain details, DNS records, web technologies, HTTP headers, and WAF presence.
+The exercise provided hands-on experience with the reconnaissance phase of a security assessment and demonstrated how publicly available information can contribute to an organization's external footprint.
 
-The objective was to understand how reconnaissance can help build an external view of an organization's infrastructure before deeper security assessment.
-
-«Note: The techniques used were a combination of passive and low-impact information gathering. Some tools, including "whatweb", "curl", "wafw00f", and "dnsrecon", send requests to the target or its DNS infrastructure.»
-
----
-
-🎯 Objectives
-
-- Practice footprinting and reconnaissance techniques
-- Gather publicly observable domain and DNS information
-- Identify web technologies and server information
-- Analyze HTTP response headers
-- Detect the presence of a Web Application Firewall
-- Correlate findings from multiple reconnaissance tools
-- Document findings with supporting evidence
-
----
-
-🧰 Tools Used
-
-Tool| Purpose
-"whois"| Domain registration and name-server information
-"nslookup"| DNS resolution
-"dnsrecon"| DNS record enumeration
-"whatweb"| Web technology fingerprinting
-"curl -I"| HTTP header analysis
-"wafw00f"| WAF detection
-
-Target: "networkwalks.com"
-
----
-
-🔎 Reconnaissance Findings
-
-1. WHOIS
-
-Command:
-
-whois networkwalks.com
-
-Key findings:
-
-- Registrar: GoDaddy.com, LLC
-- Creation Date: 2019-11-06
-- Expiry Date: 2027-11-06
-- Name Servers:
-  - "NS6135.HOSTGATOR.COM"
-  - "NS6136.HOSTGATOR.COM"
-
-"WHOIS Output" (./screenshots/1-whois.png)
-
----
-
-2. WhatWeb
-
-Command:
-
-whatweb networkwalks.com
-
-Key findings:
-
-- IP Address: "192.232.216.135"
-- Web Server: Apache
-- CMS: WordPress
-- JavaScript Library: jQuery 3.7.1
-- Framework: Bootstrap
-
-"WhatWeb Output" (./screenshots/2-whatweb.png)
-
----
-
-3. NSLookup
-
-Command:
-
-nslookup networkwalks.com
-
-Key findings:
-
-- DNS Resolver: "8.8.8.8"
-- Resolved IP: "192.232.216.135"
-
-"NSLookup Output" (./screenshots/3-nslookup.png)
-
----
-
-4. cURL — HTTP Header Analysis
-
-Command:
-
-curl -I https://networkwalks.com
-
-Key findings:
-
-- HTTP Status: "HTTP/2 200"
-- Web Server: Apache
-- WordPress technology indicator
-- REST API endpoint: "/wp-json/"
-- Cookie: "_wpmd_client"
-
-"cURL Output" (./screenshots/4-curl.png)
-
----
-
-5. Wafw00f
-
-Command:
-
-wafw00f networkwalks.com
-
-Key findings:
-
-- WAF detected: Yes
-- Identified technology: ModSecurity / SpiderLabs
-
-"Wafw00f Output" (./screenshots/5-wafw00f.png)
-
----
-
-6. DNSRecon
-
-Command:
-
-dnsrecon -d networkwalks.com
-
-Key findings:
-
-- MX: "mail.networkwalks.com"
-- Mail server IP: "192.232.216.135"
-- SPF record identified
-- Google Site Verification TXT record identified
-- cPanel mail-discovery SRV records identified
-
-"DNSRecon Output" (./screenshots/6-dnsrecon.png)
-
----
-
-📊 Reconnaissance Summary
-
-Category| Finding
-Registrar| GoDaddy
-Name Servers| HostGator infrastructure
-Resolved IP| "192.232.216.135"
-Web Server| Apache
-CMS| WordPress
-JavaScript| jQuery 3.7.1
-Framework| Bootstrap
-WAF| ModSecurity / SpiderLabs
-Mail Infrastructure| "mail.networkwalks.com"
-DNS Records| MX, SPF, TXT, SRV
+«⚠️ Disclaimer: This activity was performed strictly for educational purposes within an authorized training environment.»
 
 ---
 
 🧠 Skills Demonstrated
 
-- Footprinting & Reconnaissance
-- DNS Enumeration
-- Domain & Infrastructure Mapping
-- Web Technology Fingerprinting
-- HTTP Header Analysis
-- WAF Identification
-- Kali Linux Command-Line Usage
-- Information Correlation
-- Technical Documentation
-- Defensive Security Awareness
+- OSINT (Open-Source Intelligence)
+- Footprinting and reconnaissance
+- Domain reconnaissance
+- Email enumeration
+- Maltego graphical link analysis
+- Maltego transform execution
+- Reconnaissance data analysis
+- Understanding external information exposure
+- Security and ethical awareness
 
 ---
 
-🛡️ Defensive Insights
+🛠️ Environment & Tools
 
-This exercise demonstrated how publicly observable information can reveal details about an organization's external infrastructure.
-
-Key considerations include:
-
-- Information Disclosure: HTTP responses may expose unnecessary technology or configuration details.
-- Technology Exposure: Publicly identifiable software components should be monitored and kept up to date.
-- DNS Exposure: DNS records can reveal email infrastructure and third-party services.
-- Security Controls: Defensive technologies such as WAFs may be externally identifiable.
+Component| Details
+Operating System| Windows 11
+Reconnaissance Tool| Maltego v4.12.1
+Java Runtime| Eclipse Temurin JRE 17.0.8.1+1 (x64)
+Account| Maltego ID / Community Account
+Technique| OSINT / Footprinting
+Target Domain| "networkwalks.com"
 
 ---
 
-⚠️ Scope & Disclaimer
+🎯 Objective
 
-This project was conducted as part of a structured cybersecurity learning exercise.
+The objective of this practical was to use Maltego to discover publicly available email information associated with a target domain.
 
-The activities were limited to reconnaissance and information gathering. No attempt was made to gain unauthorized access, exploit vulnerabilities, bypass security controls, or disrupt services.
+The exercise focused on understanding how domain information can be used as a starting point for reconnaissance and how Maltego transforms can help correlate publicly discoverable information.
 
-Only systems for which explicit authorization has been granted should be tested.
+---
 
-Unauthorized security testing may be illegal.
+⚙️ Methodology
+
+1. Environment Setup
+
+I installed and configured Eclipse Temurin JRE 17.0.8.1+1 (x64) to provide the required Java runtime environment.
+
+Evidence: "images/01-java-install.png"
+
+2. Maltego Installation
+
+I installed Maltego v4.12.1 on Windows 11 using the Maltego setup wizard.
+
+Evidence: "images/02-maltego-install.png"
+
+3. Account Configuration
+
+I launched Maltego, completed the Maltego ID authentication process, and finished the initial configuration.
+
+Evidence: "images/03-maltego-config.png"
+
+4. Domain-Based Reconnaissance
+
+I created a new Maltego graph and added a Domain entity.
+
+The entity was configured with:
+
+networkwalks.com
+
+5. Transform Execution
+
+I used the following Maltego transform:
+
+[Utilities] To Email Addresses [Search Engine]
+
+The transform was executed against the domain entity to identify publicly discoverable email information.
+
+6. Result Analysis
+
+The transform returned an email address associated with the target domain.
+
+Evidence: "images/04-maltego-results.png"
+
+---
+
+📊 Result
+
+The reconnaissance activity successfully identified:
+
+info@networkwalks.com
+
+This demonstrates that publicly discoverable organizational information can be identified through OSINT techniques.
+
+«Result limitation: The discovered address represents information returned by the specific transform used during this practical. It does not establish that this is the only email address associated with the domain.»
+
+---
+
+🔍 Security Relevance
+
+From a cybersecurity perspective, publicly exposed organizational information can contribute to an organization's external attack surface.
+
+During an authorized security assessment, information such as publicly discoverable email addresses can help security professionals:
+
+- Understand an organization's public information exposure.
+- Build an external footprint of the organization.
+- Identify information that may require additional protection.
+- Support further authorized reconnaissance and security assessments.
+- Assess potential exposure to phishing and social-engineering risks.
+
+The practical also reinforced that reconnaissance results should be validated and interpreted within their source and limitations.
+
+---
+
+🧠 Key Takeaways
+
+This practical strengthened my understanding of:
+
+- How OSINT is used during cybersecurity reconnaissance.
+- How Maltego represents relationships between entities.
+- How domain information can serve as a starting point for footprinting.
+- How Maltego transforms can retrieve publicly discoverable information.
+- How search-engine-based reconnaissance can reveal organizational information.
+- The importance of analyzing reconnaissance results rather than assuming completeness.
+- The importance of authorization and clearly defined scope during security testing.
+
+---
+
+📸 Project Evidence
+
+Screenshots documenting the practical are stored in the "images/" directory:
+
+- "01-java-install.png" — Java installation
+- "02-maltego-install.png" — Maltego installation
+- "03-maltego-config.png" — Maltego configuration and authentication
+- "04-maltego-results.png" — Footprinting result
+
+---
+
+📜 Legal & Ethical Considerations
+
+This project was conducted for educational and authorized training purposes.
+
+Security reconnaissance should only be performed:
+
+- Against systems you own.
+- Within an authorized laboratory environment.
+- With explicit permission from the system or organization owner.
+- Within a clearly defined scope of engagement.
+
+Unauthorized reconnaissance or security testing may violate applicable laws, organizational policies, or terms of service.
+
+---
+
+📚 Credits
+
+Training: Networkwalks — W2-PM3 | Week 2, Project Module 3
+Tool: Maltego v4.12.1
+Runtime: Eclipse Temurin JRE 17
+Focus: OSINT, Footprinting & Reconnaissance
