@@ -1,172 +1,155 @@
-# 🛡️ Week 2: Footprinting & Reconnaissance
+# 🛡️ Week 2 — Footprinting & Reconnaissance with Kali Linux
 
-![Cybersecurity](https://img.shields.io/badge/Field-Cybersecurity-red)
-![Kali Linux](https://img.shields.io/badge/Platform-Kali%20Linux-blue)
-![Focus](https://img.shields.io/badge/Focus-Footprinting%20%26%20Reconnaissance-orange)
+![Cybersecurity](https://img.shields.io/badge/Focus-Footprinting%20%26%20Reconnaissance-blue)
+![Kali Linux](https://img.shields.io/badge/Platform-Kali%20Linux-557C94?logo=kalilinux)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-## 📌 Module Overview
+## 📌 Overview
 
-As part of my **Cybersecurity Internship with NetworkWalks**, Week 2 focused on **Footprinting and Reconnaissance**, an important phase of the cybersecurity assessment process.
+This project is part of my **Week 2 cybersecurity training**, focused on **footprinting and reconnaissance**.
 
-The module provided practical experience in gathering information about target environments, analyzing publicly available information, performing network reconnaissance, and using cybersecurity tools to identify and understand potential targets.
+I used multiple Kali Linux tools to gather and correlate publicly observable information about `networkwalks.com`, including domain details, DNS records, web technologies, HTTP headers, and WAF presence.
 
-The exercises emphasized both **information gathering and practical reconnaissance**, helping build a foundation for subsequent security assessment activities.
+The goal was to understand how reconnaissance can be used to build an external view of an organization's infrastructure before deeper security assessment.
 
----
-
-## 🎯 Module Objectives
-
-The main objectives of this module were to:
-
-* Understand the purpose of footprinting and reconnaissance in cybersecurity.
-* Practice information-gathering techniques.
-* Explore publicly available information using OSINT techniques.
-* Use cybersecurity tools for reconnaissance and network discovery.
-* Identify hosts and network information within an authorized environment.
-* Interpret reconnaissance and scanning results.
-* Document technical findings and practical evidence professionally.
+> **Note:** The techniques used were a combination of passive and low-impact information gathering. Some tools, such as `whatweb`, `curl`, `wafw00f`, and `dnsrecon`, send requests to the target or its DNS infrastructure.
 
 ---
 
-## 🔬 Practical Activities
+## 🎯 Objectives
 
-### 🔹 Footprinting & Reconnaissance
-
-The first practical activity focused on gathering information about a target environment using reconnaissance techniques and multiple cybersecurity tools.
-
-The exercise provided practical exposure to information gathering, DNS-related reconnaissance, and the interpretation of collected information.
-
-**Key areas:**
-
-* Information gathering
-* Footprinting
-* Reconnaissance
-* DNS reconnaissance
-* Target analysis
+* Practice footprinting and reconnaissance techniques
+* Gather publicly observable domain and DNS information
+* Identify web technologies and server information
+* Analyze HTTP response headers
+* Detect the presence of a Web Application Firewall
+* Correlate findings from multiple reconnaissance tools
+* Document findings with supporting evidence
 
 ---
 
-### 🔹 Maltego Reconnaissance
+## 🧰 Tools Used
 
-The second practical activity focused on using **Maltego** for graphical information gathering and OSINT.
+| Tool       | Purpose                                         |
+| ---------- | ----------------------------------------------- |
+| `whois`    | Domain registration and name-server information |
+| `nslookup` | DNS resolution                                  |
+| `dnsrecon` | DNS record enumeration                          |
+| `whatweb`  | Web technology fingerprinting                   |
+| `curl -I`  | HTTP header analysis                            |
+| `wafw00f`  | WAF detection                                   |
 
-Maltego was used to visualize relationships between entities and analyze information obtained during the reconnaissance process.
-
-**Key areas:**
-
-* OSINT
-* Information gathering
-* Entity relationships
-* Graph-based reconnaissance
-* Maltego investigation
-
----
-
-### 🔹 Zenmap Network Scanning
-
-The third practical activity focused on **network host discovery using Zenmap/Nmap** within an authorized virtualized laboratory environment.
-
-A Ping Scan was performed against a local subnet to identify responsive hosts. The exercise also involved examining available IP and MAC-address information, visualizing the discovered network topology, and exporting the topology for documentation.
-
-**Key areas:**
-
-* Network reconnaissance
-* Host discovery
-* Nmap Ping Scan
-* IP-address identification
-* MAC-address analysis
-* Network topology visualization
-* Technical documentation
+**Target:** `networkwalks.com`
 
 ---
 
-## 🛠️ Tools & Technologies
+# 🔎 Reconnaissance Findings
 
-The practical activities in this module involved:
+## 1. WHOIS
 
-* 🐧 **Kali Linux**
-* 🔎 **Nmap**
-* 🖥️ **Zenmap**
-* 🕸️ **Maltego**
-* 🌐 **DNS reconnaissance techniques**
-* 🔍 **OSINT techniques**
-* 📡 **Network discovery techniques**
+**Command:**
 
----
+```bash
+whois networkwalks.com
+```
 
-## 🧠 Skills Demonstrated
+**Key findings:**
 
-Through the completion of this module, I developed practical skills in:
+* Registrar: GoDaddy.com, LLC
+* Creation Date: 2019-11-06
+* Expiry Date: 2027-11-06
+* Name Servers:
 
-### 🔎 Reconnaissance & Information Gathering
+  * `NS6135.HOSTGATOR.COM`
+  * `NS6136.HOSTGATOR.COM`
 
-* Footprinting
-* Passive reconnaissance
-* Active reconnaissance
-* OSINT
-* Target information analysis
-
-### 🌐 Network Reconnaissance
-
-* Host discovery
-* IP-address identification
-* MAC-address analysis
-* Subnet reconnaissance
-* Network topology visualization
-
-### 🛠️ Security Tools
-
-* Maltego
-* Nmap
-* Zenmap
-* DNS reconnaissance tools
-
-### 📑 Technical Documentation
-
-* Recording reconnaissance findings
-* Interpreting security-tool output
-* Capturing practical evidence
-* Documenting methodologies and results
-* Presenting cybersecurity activities professionally
+![WHOIS Output](./screenshots/1-whois.png)
 
 ---
 
-## 📸 Practical Evidence
+## 2. WhatWeb
 
-Each practical activity was supported with screenshots and other relevant evidence documenting the tools used, procedures performed, and results obtained.
+**Command:**
 
-The evidence demonstrates the practical execution of the reconnaissance techniques covered throughout the module.
+```bash
+whatweb networkwalks.com
+```
 
----
+**Key findings:**
 
-## 🔐 Ethical & Legal Considerations
+* IP Address: `192.232.216.135`
+* Web Server: Apache
+* CMS: WordPress
+* JavaScript Library: jQuery 3.7.1
+* Framework: Bootstrap
 
-All reconnaissance and network-scanning activities documented in this module were performed within an **authorized cybersecurity training/laboratory environment** as part of my NetworkWalks Cybersecurity Internship.
-
-Reconnaissance techniques should only be performed against systems, networks, and assets where appropriate authorization has been obtained.
-
----
-
-## 📚 Key Learning Outcomes
-
-Completing this module strengthened my understanding of how cybersecurity professionals begin an assessment by **collecting information, identifying potential targets, analyzing available data, and understanding network environments** before progressing to deeper security testing.
-
-I also gained practical experience in selecting and using appropriate reconnaissance tools, interpreting their results, organizing technical evidence, and documenting cybersecurity activities.
-
-The module helped connect theoretical reconnaissance concepts with practical cybersecurity workflows.
+![WhatWeb Output](./screenshots/2-whatweb.png)
 
 ---
 
-## ✅ Module Status
+## 3. NSLookup
 
-**Completed Successfully**
+**Command:**
 
-Week 2 — **Footprinting & Reconnaissance** completed as part of my **NetworkWalks Cybersecurity Internship**.
+```bash
+nslookup networkwalks.com
+```
 
-**Areas Covered:**
+**Key findings:**
 
-* ✅ Footprinting and information gathering
+* DNS Resolver: `8.8.8.8`
+* Resolved IP: `192.232.216.135`
+
+![NSLookup Output](./screenshots/3-nslookup.png)
+
+---
+
+## 4. cURL — HTTP Header Analysis
+
+**Command:**
+
+```bash
+curl -I https://networkwalks.com
+```
+
+**Key findings:**
+
+* HTTP Status: `HTTP/2 200`
+* Web Server: Apache
+* WordPress technology indicator
+* REST API endpoint: `/wp-json/`
+* Cookie: `_wpmd_client`
+
+![cURL Output](./screenshots/4-curl.png)
+
+---
+
+## 5. Wafw00f
+
+**Command:**
+
+```bash
+wafw00f networkwalks.com
+```
+
+**Key findings:**
+
+* WAF detected: Yes
+* Identified technology: ModSecurity / SpiderLabs
+
+![Wafw00f Output](./screenshots/5-wafw00f.png)
+
+---
+
+## 6. DNSRecon
+
+**Command:**
+
+```bash
+dnsrecon -d networkwalks.com
+```
+
+**Key findings:*** ✅ Footprinting and information gathering
 * ✅ OSINT and graphical reconnaissance
 * ✅ Maltego-based reconnaissance
 * ✅ Network host discovery
@@ -174,3 +157,68 @@ Week 2 — **Footprinting & Reconnaissance** completed as part of my **NetworkWa
 * ✅ Network topology visualization
 * ✅ Technical evidence collection
 * ✅ Cybersecurity documentation
+
+* MX: `mail.networkwalks.com`
+* Mail server IP: `192.232.216.135`
+* SPF record identified
+* Google Site Verification TXT record identified
+* cPanel mail-discovery SRV records identified
+
+![DNSRecon Output](./screenshots/6-dnsrecon.png)
+
+---
+
+# 📊 Reconnaissance Summary
+
+| Category            | Finding                  |
+| ------------------- | ------------------------ |
+| Registrar           | GoDaddy                  |
+| Name Servers        | HostGator infrastructure |
+| Resolved IP         | `192.232.216.135`        |
+| Web Server          | Apache                   |
+| CMS                 | WordPress                |
+| JavaScript          | jQuery 3.7.1             |
+| Framework           | Bootstrap                |
+| WAF                 | ModSecurity / SpiderLabs |
+| Mail Infrastructure | `mail.networkwalks.com`  |
+| DNS Records         | MX, SPF, TXT, SRV        |
+
+---
+
+# 🧠 Skills Demonstrated
+
+* Footprinting & Reconnaissance
+* DNS Enumeration
+* Domain & Infrastructure Mapping
+* Web Technology Fingerprinting
+* HTTP Header Analysis
+* WAF Identification
+* Kali Linux Command-Line Usage
+* Information Correlation
+* Technical Documentation
+* Defensive Security Awareness
+
+---
+
+# 🛡️ Defensive Insights
+
+This exercise demonstrated how publicly observable information can reveal details about an organization's external infrastructure.
+
+Key defensive considerations include:
+
+* **Information Disclosure:** HTTP responses may expose unnecessary technology or configuration details.
+* **Technology Exposure:** Publicly identifiable software components should be monitored and kept up to date.
+* **DNS Exposure:** DNS records can reveal email infrastructure and third-party services.
+* **Security Controls:** Defensive technologies such as WAFs may be externally identifiable.
+
+---
+
+# ⚠️ Scope & Disclaimer
+
+This project was conducted as part of a structured cybersecurity learning exercise.
+
+The activities were limited to reconnaissance and information gathering. No attempt was made to gain unauthorized access, exploit vulnerabilities, bypass security controls, or disrupt services.
+
+Only systems for which explicit authorization has been granted should be tested.
+
+**Unauthorized security testing may be illegal.**
