@@ -1,0 +1,217 @@
+# 🛡️ Week 2 — Footprinting & Reconnaissance with Kali Linux
+
+![Cybersecurity](https://img.shields.io/badge/Focus-Footprinting%20%26%20Reconnaissance-blue)
+![Kali Linux](https://img.shields.io/badge/Platform-Kali%20Linux-557C94?logo=kalilinux)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+
+## 📌 Overview
+
+This project is part of my **Week 2 cybersecurity training**, focused on **footprinting and reconnaissance**.
+
+I used multiple Kali Linux tools to gather and correlate publicly observable information about `networkwalks.com`, including domain details, DNS records, web technologies, HTTP headers, and WAF presence.
+
+The goal was to understand how reconnaissance can be used to build an external view of an organization's infrastructure before deeper security assessment.
+
+> **Note:** The techniques used were a combination of passive and low-impact information gathering. Some tools, such as `whatweb`, `curl`, `wafw00f`, and `dnsrecon`, send requests to the target or its DNS infrastructure.
+
+---
+
+## 🎯 Objectives
+
+* Practice footprinting and reconnaissance techniques
+* Gather publicly observable domain and DNS information
+* Identify web technologies and server information
+* Analyze HTTP response headers
+* Detect the presence of a Web Application Firewall
+* Correlate findings from multiple reconnaissance tools
+* Document findings with supporting evidence
+
+---
+
+## 🧰 Tools Used
+
+| Tool       | Purpose                                         |
+| ---------- | ----------------------------------------------- |
+| `whois`    | Domain registration and name-server information |
+| `nslookup` | DNS resolution                                  |
+| `dnsrecon` | DNS record enumeration                          |
+| `whatweb`  | Web technology fingerprinting                   |
+| `curl -I`  | HTTP header analysis                            |
+| `wafw00f`  | WAF detection                                   |
+
+**Target:** `networkwalks.com`
+
+---
+
+# 🔎 Reconnaissance Findings
+
+## 1. WHOIS
+
+**Command:**
+
+```bash
+whois networkwalks.com
+```
+
+**Key findings:**
+
+* Registrar: GoDaddy.com, LLC
+* Creation Date: 2019-11-06
+* Expiry Date: 2027-11-06
+* Name Servers:
+
+  * `NS6135.HOSTGATOR.COM`
+  * `NS6136.HOSTGATOR.COM`
+
+![WHOIS Output](./screenshots/1-whois.png)
+
+---
+
+## 2. WhatWeb
+
+**Command:**
+
+```bash
+whatweb networkwalks.com
+```
+
+**Key findings:**
+
+* IP Address: `192.232.216.135`
+* Web Server: Apache
+* CMS: WordPress
+* JavaScript Library: jQuery 3.7.1
+* Framework: Bootstrap
+
+![WhatWeb Output](./screenshots/2-whatweb.png)
+
+---
+
+## 3. NSLookup
+
+**Command:**
+
+```bash
+nslookup networkwalks.com
+```
+
+**Key findings:**
+
+* DNS Resolver: `8.8.8.8`
+* Resolved IP: `192.232.216.135`
+
+![NSLookup Output](./screenshots/3-nslookup.png)
+
+---
+
+## 4. cURL — HTTP Header Analysis
+
+**Command:**
+
+```bash
+curl -I https://networkwalks.com
+```
+
+**Key findings:**
+
+* HTTP Status: `HTTP/2 200`
+* Web Server: Apache
+* WordPress technology indicator
+* REST API endpoint: `/wp-json/`
+* Cookie: `_wpmd_client`
+
+![cURL Output](./screenshots/4-curl.png)
+
+---
+
+## 5. Wafw00f
+
+**Command:**
+
+```bash
+wafw00f networkwalks.com
+```
+
+**Key findings:**
+
+* WAF detected: Yes
+* Identified technology: ModSecurity / SpiderLabs
+
+![Wafw00f Output](./screenshots/5-wafw00f.png)
+
+---
+
+## 6. DNSRecon
+
+**Command:**
+
+```bash
+dnsrecon -d networkwalks.com
+```
+
+**Key findings:**
+
+* MX: `mail.networkwalks.com`
+* Mail server IP: `192.232.216.135`
+* SPF record identified
+* Google Site Verification TXT record identified
+* cPanel mail-discovery SRV records identified
+
+![DNSRecon Output](./screenshots/6-dnsrecon.png)
+
+---
+
+# 📊 Reconnaissance Summary
+
+| Category            | Finding                  |
+| ------------------- | ------------------------ |
+| Registrar           | GoDaddy                  |
+| Name Servers        | HostGator infrastructure |
+| Resolved IP         | `192.232.216.135`        |
+| Web Server          | Apache                   |
+| CMS                 | WordPress                |
+| JavaScript          | jQuery 3.7.1             |
+| Framework           | Bootstrap                |
+| WAF                 | ModSecurity / SpiderLabs |
+| Mail Infrastructure | `mail.networkwalks.com`  |
+| DNS Records         | MX, SPF, TXT, SRV        |
+
+---
+
+# 🧠 Skills Demonstrated
+
+* Footprinting & Reconnaissance
+* DNS Enumeration
+* Domain & Infrastructure Mapping
+* Web Technology Fingerprinting
+* HTTP Header Analysis
+* WAF Identification
+* Kali Linux Command-Line Usage
+* Information Correlation
+* Technical Documentation
+* Defensive Security Awareness
+
+---
+
+# 🛡️ Defensive Insights
+
+This exercise demonstrated how publicly observable information can reveal details about an organization's external infrastructure.
+
+Key defensive considerations include:
+
+* **Information Disclosure:** HTTP responses may expose unnecessary technology or configuration details.
+* **Technology Exposure:** Publicly identifiable software components should be monitored and kept up to date.
+* **DNS Exposure:** DNS records can reveal email infrastructure and third-party services.
+* **Security Controls:** Defensive technologies such as WAFs may be externally identifiable.
+
+---
+
+# ⚠️ Scope & Disclaimer
+
+This project was conducted as part of a structured cybersecurity learning exercise.
+
+The activities were limited to reconnaissance and information gathering. No attempt was made to gain unauthorized access, exploit vulnerabilities, bypass security controls, or disrupt services.
+
+Only systems for which explicit authorization has been granted should be tested.
+
+**Unauthorized security testing may be illegal.**
