@@ -24,7 +24,7 @@ The goal was to understand how reconnaissance can be used to build an external v
 * Analyze HTTP response headers
 * Detect the presence of a Web Application Firewall
 * Correlate findings from multiple reconnaissance tools
-* Document findings with supporting evidence
+* Document findings with supporting evidence.
 
 ---
 
