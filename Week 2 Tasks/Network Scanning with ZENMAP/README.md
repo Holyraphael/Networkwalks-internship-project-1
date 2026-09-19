@@ -7,21 +7,22 @@
 
 ## 📌 Project Overview
 
-This project demonstrates a **network discovery exercise using Zenmap**, the graphical interface for Nmap.
+This project demonstrates a **network discovery and reconnaissance exercise using Zenmap**, the graphical interface for Nmap.
 
-The goal was to discover active hosts on a local network, examine basic host information, and visualize the discovered network using Zenmap's topology feature.
+The exercise involved performing a host discovery scan, identifying active hosts, visualizing the discovered network, interpreting the topology, and saving the resulting visualization.
 
 **Target Network:** `10.0.0.0/24`
 
 ---
 
-## 🎯 Objective
+## 🎯 Objectives
 
-* Discover live hosts on the local subnet.
-* Identify their IP addresses and available MAC address information.
-* Perform host discovery using Nmap.
+* Perform network host discovery using Zenmap.
+* Identify active hosts on the target subnet.
 * Visualize the discovered network topology.
-* Document the reconnaissance results.
+* Interpret the topology using Zenmap's legend.
+* Save the resulting network visualization.
+* Document the practical reconnaissance process.
 
 ---
 
@@ -29,50 +30,90 @@ The goal was to discover active hosts on a local network, examine basic host inf
 
 * **Zenmap**
 * **Nmap**
-* **Windows Command Prompt**
-* **`ipconfig` / `ipconfig /all`**
 
 ---
 
-## 🔍 Network Scanning
+## 🔎 1. Network Scanning
 
-The local network configuration was identified using:
+### What I Did
 
-```text
-ipconfig
-```
+I configured Zenmap to perform a **Ping Scan** against the target network.
 
-Observed network:
-
-```text
-Local IP: 10.0.0.1
-Subnet:   10.0.0.0/24
-```
-
-A **Ping Scan** was then performed in Zenmap using:
+The scan used:
 
 ```bash
 nmap -sn 10.0.0.0/24
 ```
 
-The scan discovered **2 live hosts**:
+The scan successfully identified **2 live hosts**:
 
-| IP Address | Status | MAC Address         |
-| ---------- | ------ | ------------------- |
-| `10.0.0.1` | Live   | `52:54:00:12:35:00` |
-| `10.0.0.2` | Live   | Not displayed       |
+| IP Address | Status |
+| ---------- | ------ |
+| `10.0.0.1` | Live   |
+| `10.0.0.2` | Live   |
 
-The `10.0.0.1` address was identified with a **QEMU virtual NIC**.
+The `10.0.0.1` host was identified as using a **QEMU virtual NIC**.
+
+### 📸 Evidence 1 — Network Scanning
+
+![Network Scanning](screenshots/1-network-scanning.png)
 
 ---
 
-## 🗺️ Network Topology
+## 🗺️ 2. Network Topology
 
-Zenmap's **Topology** feature was used to visualize the discovered hosts and network relationships.
+### What I Did
 
-The resulting topology was exported as:
+After completing the host discovery scan, I opened Zenmap's **Topology** tab to visualize the discovered hosts and their network relationships.
+
+### 📸 Evidence 2 — Network Topology
+
+![Network Topology](screenshots/2-topology.png)
+
+---
+
+## 🗺️ 3. Topology Legend
+
+### What I Did
+
+I enabled the **Legend** in Zenmap's Topology view to help interpret the symbols and indicators displayed in the network visualization.
+
+### 📸 Evidence 3 — Topology Legend
+
+![Topology Legend](screenshots/3-topology-legend.png)
+
+---
+
+## 💾 4. Saving the Topology
+
+### What I Did
+
+After reviewing the topology, I used Zenmap's **Save Graphic** function to save the completed network visualization.
+
+The topology was exported as:
 
 **`Zenmap-Topology.pdf`**
+
+### 📸 Evidence 4 — Saving the Topology
+
+![Saving the Topology](screenshots/4-saving-topology.png)
+
+### 📄 Exported File
+
+[**View Zenmap-Topology.pdf**](Zenmap-Topology.pdf)
+
+---
+
+## 📊 Results
+
+| Activity               | Result                |
+| ---------------------- | --------------------- |
+| Target network         | `10.0.0.0/24`         |
+| Host discovery         | Completed             |
+| Live hosts discovered  | 2                     |
+| Topology visualization | Completed             |
+| Topology legend        | Enabled               |
+| Topology export        | `Zenmap-Topology.pdf` |
 
 ---
 
@@ -83,7 +124,6 @@ The resulting topology was exported as:
 * Nmap / Zenmap
 * IP addressing and CIDR
 * Network analysis
-* MAC address identification
 * Network topology visualization
 * Technical documentation
 
@@ -91,15 +131,16 @@ The resulting topology was exported as:
 
 ## 💡 Key Takeaways
 
-This exercise provided practical experience with **network reconnaissance and host discovery**.
+This exercise provided practical experience with **network discovery and topology visualization using Zenmap**.
 
 I learned how to:
 
-* Identify active hosts within a subnet.
-* Use Nmap's `-sn` option for host discovery.
-* Interpret basic Nmap results.
-* Use Zenmap to visualize network topology.
-* Document reconnaissance findings professionally.
+* Perform host discovery against a subnet.
+* Use Nmap's `-sn` option to identify live hosts.
+* Interpret Zenmap scan results.
+* Visualize discovered hosts using the Topology feature.
+* Use the topology legend to understand network indicators.
+* Save and document the resulting network visualization.
 
 ---
 
