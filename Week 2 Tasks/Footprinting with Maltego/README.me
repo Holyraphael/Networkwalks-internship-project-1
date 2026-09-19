@@ -1,175 +1,107 @@
-Week 2 – Project Module 3: Footprinting with Maltego
+# 🔎 Maltego Footprinting
 
-"Maltego Footprinting" (images/maltego-banner.png)
+![Maltego Footprinting](screenshots/maltego-banner.png)
+![Tool](https://img.shields.io/badge/Tool-Maltego-orange)
+![Focus](https://img.shields.io/badge/Focus-Footprinting%20%26%20Reconnaissance-red)
 
-"Maltego" (https://img.shields.io/badge/Tool-Maltego-orange)
-"OS" (https://img.shields.io/badge/OS-Windows%2011-lightgrey)
-"Java" (https://img.shields.io/badge/Java-Eclipse%20Temurin-blue)
-"Focus" (https://img.shields.io/badge/Focus-OSINT%20%7C%20Footprinting-blueviolet)
-"Status" (https://img.shields.io/badge/Status-Completed-success)
+## 📌 Overview
 
-📖 Overview
+This practical exercise demonstrates the use of **Maltego** for domain footprinting and reconnaissance.
 
-This project focused on footprinting and Open-Source Intelligence (OSINT) using Maltego, a graphical link-analysis and reconnaissance tool.
+Maltego is an OSINT and reconnaissance tool that provides a graphical way to investigate relationships between entities such as domains, email addresses, websites, and other publicly available information.
 
-The practical involved configuring Maltego, creating a domain-based graph, and using a search-engine-based transform to identify publicly discoverable email information associated with "networkwalks.com".
+The exercise covered the installation and configuration of Maltego, creation of a domain entity, investigation of the domain, and analysis of the resulting information.
 
-The exercise provided hands-on experience with the reconnaissance phase of a security assessment and demonstrated how publicly available information can contribute to an organization's external footprint.
+## 🎯 Objectives
 
-«⚠️ Disclaimer: This activity was performed strictly for educational purposes within an authorized training environment.»
+* Install and configure Maltego for reconnaissance.
+* Create a domain entity as the starting point of an investigation.
+* Investigate publicly available information associated with a domain.
+* Identify email addresses related to the domain.
+* Understand how Maltego visualizes relationships between discovered entities.
 
----
+## 🛠️ Tool Used
 
-🧠 Skills Demonstrated
+**Maltego**
 
-- OSINT (Open-Source Intelligence)
-- Footprinting and reconnaissance
-- Domain reconnaissance
-- Email enumeration
-- Maltego graphical link analysis
-- Maltego transform execution
-- Reconnaissance data analysis
-- Understanding external information exposure
-- Security and ethical awareness
+Maltego was used to perform graphical OSINT and domain footprinting during the reconnaissance exercise.
 
----
+## 🔍 Methodology
 
-🛠️ Environment & Tools
+The investigation was carried out through the following steps.
 
-Component| Details
-Operating System| Windows 11
-Reconnaissance Tool| Maltego v4.12.1
-Java Runtime| Eclipse Temurin JRE 17
-Account| Maltego ID / Community Account
-Technique| OSINT / Footprinting
-Target Domain| "networkwalks.com"
+### 1. Install Maltego
+
+Maltego was installed and launched in the lab environment to prepare the system for the footprinting exercise.
+
+**Screenshot 1 — Maltego Installation**
+
+![Screenshot 1 - Maltego Installation](screenshots/01-maltego-install.png)
 
 ---
 
-🎯 Objective
+### 2. Configure Maltego
 
-The objective of this practical was to use Maltego to discover publicly available email information associated with a target domain.
+After installation, Maltego was configured and prepared for the investigation.
 
-The exercise focused on understanding how domain information can serve as a starting point for reconnaissance and how Maltego transforms can help identify publicly discoverable information.
+This setup provided the environment required to create entities and perform the domain investigation.
 
----
+**Screenshot 2 — Maltego Configuration**
 
-⚙️ Methodology
-
-1. Environment Setup
-
-I installed and configured Eclipse Temurin JRE 17 to provide the Java runtime environment required for the Maltego installation used in this practical.
-
-Evidence: "images/01-java-install.png"
-
-2. Maltego Installation
-
-I installed Maltego v4.12.1 on Windows 11 using the Maltego setup wizard.
-
-Evidence: "images/02-maltego-install.png"
-
-3. Account Configuration
-
-I launched Maltego, completed the Maltego ID authentication process, and finished the initial configuration.
-
-Evidence: "images/03-maltego-config.png"
-
-4. Domain-Based Reconnaissance
-
-I created a new Maltego graph and added a Domain entity.
-
-The entity was configured with:
-
-networkwalks.com
-
-5. Transform Execution
-
-I used the following Maltego transform:
-
-[Utilities] To Email Addresses [Search Engine]
-
-The transform was executed against the domain entity to identify publicly discoverable email information.
-
-6. Result Analysis
-
-The transform returned an email address associated with the target domain.
-
-Evidence: "images/04-maltego-results.png"
+![Screenshot 2 - Maltego Configuration](screenshots/02-maltego-config.png)
 
 ---
 
-📊 Result
+### 3. Create the Domain Entity
 
-The reconnaissance activity successfully identified:
+A new investigation was created in Maltego, and a **Domain** entity was added to the graph.
 
-info@networkwalks.com
+The target domain was entered into the domain entity and used as the starting point for the footprinting investigation.
 
-This demonstrates how publicly discoverable organizational information can be identified through OSINT techniques.
+**Screenshot 3 — Domain Entity**
 
-«Result limitation: The discovered address represents information returned by the specific transform used during this practical. It does not establish that this is the only email address associated with the domain.»
-
----
-
-🔍 Security Relevance
-
-From a cybersecurity perspective, publicly exposed organizational information can contribute to an organization's external attack surface.
-
-During an authorized security assessment, information such as publicly discoverable email addresses can help security professionals:
-
-- Understand an organization's public information exposure.
-- Build an external footprint of the organization.
-- Identify information that may require additional protection.
-- Support further authorized reconnaissance and security assessments.
-- Assess potential exposure to phishing and social-engineering risks.
-
-The practical also reinforced that reconnaissance results should be validated and interpreted within their source and limitations.
+![Screenshot 3 - Domain Entity](screenshots/03-domain-entity.png)
 
 ---
 
-🧠 Key Takeaways
+### 4. Investigate the Domain
 
-This practical strengthened my understanding of:
+The domain entity was investigated using Maltego's available transforms.
 
-- How OSINT is used during cybersecurity reconnaissance.
-- How Maltego represents relationships between entities.
-- How domain information can serve as a starting point for footprinting.
-- How Maltego transforms can retrieve publicly discoverable information.
-- How search-engine-based reconnaissance can reveal organizational information.
-- The importance of analyzing reconnaissance results rather than assuming completeness.
-- The importance of authorization and clearly defined scope during security testing.
+The investigation expanded the domain into related entities and displayed the discovered information within the Maltego graph. This allowed relationships between the domain and publicly available information to be examined.
+
+**Screenshot 4 — Maltego Results**
+
+![Screenshot 4 - Maltego Results](screenshots/04-maltego-results.png)
 
 ---
 
-📸 Project Evidence
+### 5. Analyze the Results
 
-The practical is supported by the following screenshots:
+The resulting graph was examined to identify information associated with the domain.
 
-Evidence| Description
-"01-java-install.png"| Eclipse Temurin JRE installation
-"02-maltego-install.png"| Maltego installation
-"03-maltego-config.png"| Maltego configuration and authentication
-"04-maltego-results.png"| Footprinting result
+The investigation revealed **email addresses related to the domain**, demonstrating how Maltego can be used to map relationships between a domain and other publicly available information.
 
----
+## 🧠 Key Learning Outcomes
 
-📜 Legal & Ethical Considerations
+This exercise provided practical experience with:
 
-This project was conducted for educational and authorized security-training purposes.
+* Installing and configuring Maltego.
+* Creating and investigating domain entities.
+* Performing domain-based footprinting.
+* Using transforms during reconnaissance.
+* Identifying publicly available email information.
+* Understanding relationships between reconnaissance entities.
+* Visualizing OSINT results through a graphical investigation interface.
 
-Security reconnaissance should only be performed:
+## ⚠️ Ethical Considerations
 
-- Against systems you own.
-- Within an authorized laboratory environment.
-- With explicit permission from the system or organization owner.
-- Within a clearly defined scope of engagement.
+Maltego should only be used against domains, systems, and information that you are authorized to investigate or that are intentionally available for legitimate OSINT research.
 
-Unauthorized reconnaissance or security testing may violate applicable laws, organizational policies, or terms of service.
+The techniques demonstrated in this exercise should be applied responsibly for authorized cybersecurity, educational, and research purposes.
 
----
+## 📚 Conclusion
 
-📚 Credits
+This exercise demonstrated a practical **Maltego footprinting workflow**, from installation and configuration to domain investigation and analysis of the resulting information.
 
-Training: Networkwalks — W2-PM3 | Week 2, Project Module 3
-Tool: Maltego v4.12.1
-Runtime: Eclipse Temurin JRE 17
-Focus: OSINT, Footprinting & Reconnaissance
+Starting with a domain entity and investigating its related information provided practical experience with graphical OSINT, domain reconnaissance, entity relationships, and the identification of publicly available email information.
